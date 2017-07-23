@@ -2,7 +2,7 @@ const pageCount = 3;
 const blockCount = 20;
 
 $(document).ready(function () {
-  console.log('loaded');
+  $('#printBtn').prop('disabled', true);
 });
 
 function readURL(input) {
@@ -15,6 +15,7 @@ function readURL(input) {
         img[0].onload = function () {
           URL.revokeObjectURL(img.src)
           drawImageToCanvases(img[0]);
+          $('#printBtn').prop('disabled', false);
         };
     };
 
