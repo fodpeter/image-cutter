@@ -1,0 +1,22 @@
+@media print {
+  .no-print, .no-print * {
+    display: none !important;
+  }
+}
+
+@page {
+    size: auto;   /* auto is the initial value */
+    margin: 0;  /* this affects the margin in the printer settings */
+}
+
+.pagebreak {
+  page-break-before: always;
+  height:100%;
+  margin: 10px;
+  padding: 10px;
+}
+
+.borderaround {
+  border-color: black;
+  border: 1px solid;
+}
