@@ -1,6 +1,5 @@
 const pageCount = 3;
 const blockCount = 20;
-const maxCanvasSize = [800,600];
 
 $(document).ready(function () {
   console.log('loaded');
@@ -31,10 +30,12 @@ function createCanvasList(baseSelector, canvasSize, pageCount) {
     const canvas = $('<canvas></canvas>')
       .attr("id", "canvas"+i)
       .attr("width", canvasSize[0])
-      .attr("height",canvasSize[1]);
+      .attr("height", canvasSize[1])
+      .addClass('max-size-100perc');
     const div = $('<div/>')
       .addClass('pagebreak')
       .addClass('borderaround')
+      .addClass('fit-screen')
       .append(canvas)
     pages.append($('<div>')
       .addClass('no-print')
@@ -47,8 +48,7 @@ function createCanvasList(baseSelector, canvasSize, pageCount) {
 }
 
 function drawImageToCanvases(img) {
-  const scale = Math.min(1, maxCanvasSize[0]/img.naturalWidth, maxCanvasSize[1]/img.naturalHeight);
-  const canvasSize = [img.naturalWidth*scale, img.naturalHeight*scale];
+  const canvasSize = [img.naturalWidth, img.naturalHeight];
   const canvases = createCanvasList('#pages', canvasSize, pageCount);
 
   const contexts = canvases.map((canvas) => canvas.getContext('2d'));
