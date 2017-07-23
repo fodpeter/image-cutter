@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <title>Image cutter</title>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
   <script type="text/javascript" src="app.js"></script>
   <link href="app.css" rel="stylesheet" title="Default Style">
 </head>
@@ -14,14 +13,14 @@
   </noscript>
   <div class="no-print">
     <h2>Cut an image to multiple pages</h2>
-    <p>
-      Select an image:
-      <input type="file" onchange="readURL(this);" />
-    </p>
-    <p>
-      The complete image:
-      <img id="imgId" src="#" alt="Your image" />
-    </p>
+    <ol>
+      <li>Select an image: <input type="file" onchange="readURL(this);" /></li>
+      <li>
+        The complete image:
+        <img id="imgId" src="#" alt="Your image" />
+      </li>
+      <li><button onclick="window.print()">Print this page</button>. Only the images in the boxes will be printed.</li>
+    </ol>
   </div>
   <div id="pages">
   </div>

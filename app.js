@@ -28,6 +28,7 @@ function readURL(input) {
 function createCanvasList(baseSelector, pageCount) {
   let canvasList = [];
   const pages = $(baseSelector).empty();
+  pages.append($('<h3>Print preview</h3>').addClass('no-print'))
   for (let i=0;i<pageCount;i++) {
     const canvas = $('<canvas></canvas>')
       .attr("id", "canvas"+i)
@@ -37,6 +38,10 @@ function createCanvasList(baseSelector, pageCount) {
       .addClass('pagebreak')
       .addClass('borderaround')
       .append(canvas)
+    pages.append($('<div>')
+      .addClass('no-print')
+      .html('Page ' + (i+1) + ' of ' + pageCount)
+    );
     pages.append(div);
     canvasList.push(canvas);
   }
